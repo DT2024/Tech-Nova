@@ -8,60 +8,82 @@
 </head>
 <body>
     <div class="container">
-        <h1>Our Tech Nova Team</h1>
-        <p>Our unique selling point lies in our ability to deliver with empathy and urgency. We act with speed, precision, and heart.</p>
-
-        <div class="team">
-            <div class="card">
-                <img src="images/yuchen.jpeg" alt="Yuchen Wei">
-                <h3>Yuchen Wei</h3>
-                <p>Team Lead + Backend Developer</p>
-                <p>Skills: Java, JavaScript, App Dev, NodeJS, Linux, HTML, CSS</p>
-                <a href="https://github.com/ScottWei0428" class="github-link">GitHub</a>
-            </div>
-
-            <div class="card">
-                <img src="images/dariya2.jpeg" alt="Dariya Takenova">
-                <h3>Dariya Takenova</h3>
-                <p>Full Stack Developer</p>
-                <p>Skills: Java, HTML/CSS/JS, Asp.Net, NodeJS, Machine Learning, MySQL</p>
-                <p class="note">Prefer to be called Darius</p>
-                <a href="https://github.com/DT2024" class="github-link">GitHub</a>
-            </div>
-
-            <div class="card">
-                <img src="images/vy.jpg" alt="Vy Ly">
-                <h3>Vy Ly</h3>
-                <p>Software Developer</p>
-                <p>Skills: Java, HTML/CSS/JS, Asp.Net, NodeJS, Big Data, MySQL</p>
-                <a href="https://github.com/vyly" class="github-link">GitHub</a>
-            </div>
-
-            <div class="card">
-                <img src="images/rafiat2.jpeg" alt="Rafiat Bolaji">
-                <h3>Rafiat Bolaji</h3>
-                <p>Front-End Software Developer</p>
-                <p>Skills: Java, NodeJS, HTML/CSS,React,App Dev.,JavaScript, Asp.Net, Machine Learning, Project Mng,MySQL</p>
-                <a href="https://github.com/Rafiat-B" class="github-link">GitHub</a>
+        <img src="images/TECHNOVA_NB.png" alt="Logo" style="height: 50px;">
+        <!-- <h1>Tech Nova Team</h1> -->
+        <div>
+            <h2>Our Commitment to Excellence</h2>
+            <p class="distinct">
+                Our distinct advantage lies in our commitment to delivering solutions with 
+                empathy and urgency. We don’t just develop software,
+                we resolve problems from the perspectives of our clients and stakeholders, 
+                ensuring we fully understand their needs and expectations. We ensure 
+                solutions are never hindered by prolonged processes or conventional 
+                business timelines.
+            </p>
+        </div>
+        
+        <div>
+            <h2>Meet the Team</h2>
+            <div class="team">
+                <div class="card">
+                    <img src="images/yuchen.jpeg" alt="Yuchen Wei">
+                    <h3>Yuchen Wei</h3>
+                    <p>Team Lead + Backend Developer</p>
+                    <p>Skills: JAVA, JAVASCRIPT, APP DEVELOPMENT,, NODE.JS JAVASCRIPT, LINUX, HTML/CSS</p>
+                    <a href="https://github.com/ScottWei0428" class="github-link">GitHub</a>
+                </div>
+    
+                <div class="card">
+                    <img src="images/dariya2.jpeg" alt="Dariya Takenova">
+                    <h3>Dariya Takenova</h3>
+                    <p class="note" style="font-style: italic;">Prefer to be called Darius</p>
+                    <p>Full Stack Developer</p>
+                    <p>Skills: JAVA, NODE.JS, HTML/CSS, JAVASCRIPT, APP DEVELOPMENT, 
+                        MACHINE LEARNING, PYTHON, PROJECT MGT., MYSQL.</p>
+                    
+                    <a href="https://github.com/DT2024" class="github-link">GitHub</a>
+                </div>
+    
+                <div class="card">
+                    <img src="images/vy.jpg" alt="Vy Ly">
+                    <h3>Vy Ly</h3>
+                    <p>Full Stack Developer</p>
+                    <p>Skills: JAVA, NODE.JS, REACT, HTML/CSS, JAVASCRIPT, BIG DATA, 
+                        PYTHON, APP DEVELOPMENT, PROJECT MGT., SQL</p>
+                    <a href="https://github.com/vyly" class="github-link">GitHub</a>
+                </div>
+    
+                <div class="card">
+                    <img src="images/rafiat2.jpeg" alt="Rafiat Bolaji">
+                    <h3>Rafiat Bolaji</h3>
+                    <p>Front-End Software Developer</p>
+                    <p>Skills: JAVA, NODE JS,  HTML/CSS, REACT, APP DEV., JAVASCRIPT, ASP.NET, 
+                        MACHINE LEARNING, PYTHON, PROJECT MGT., MYSQL</p>
+                    <a href="https://github.com/Rafiat-B" class="github-link">GitHub</a>
+                </div>
             </div>
         </div>
-
+        
+        <!-- <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdTMejwO1UWICcGjcnTYEJyc_KWjAI3GElvUltpCPHvCq_Pxg/viewform?embedded=true" 
+                width="640" height="946" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe> -->
         <!-- Contact Form -->
         <div class="contact">
             <h2>Contact Us</h2>
-            <form action="sendEmail.php" method="post" class="contact-form">
+            <form action="" method="post" class="contact-form">
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="name" required><br>
                 
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" required><br>
 
                 <label for="message">Message:</label>
-                <textarea id="message" name="message" required></textarea>
+                <textarea id="message" name="message" required></textarea><br>
 
-                <button type="submit">Send</button>
+                <button type="button" onclick="submitGoogleForm()">Send</button>
             </form>
         </div>
     </div>
+
+    <script src="tech.js"></script>
 </body>
 </html>
