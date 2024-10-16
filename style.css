@@ -93,6 +93,8 @@ h2 {
     border-radius: 10px;
     margin: 40px;
     justify-content: center;
+    align-content:start ;
+    width: 90%;
 }
 
 .contact-form {
@@ -112,18 +114,20 @@ h2 {
     font-size: 16px;
 }
 
-.contact-form button {
+button {
     background-color: #ffcc00;
     color: black;
     padding: 10px 20px;
     border: none;
     cursor: pointer;
     border-radius: 5px;
-    font-size: 16px;
-    align-self:center;
+    font-size: 20px;
+    font-weight: bolder;
+    align-self: center;
+    
 }
 
-.contact-form button:hover {
+button:hover {
     background-color: #333;
     color: #ffcc00;
 }
