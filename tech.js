@@ -8,7 +8,7 @@ window.addEventListener('load', function()
 
 
 function slideInOnLoad() {
-    document.querySelectorAll('.card').forEach(element => {
+    document.querySelectorAll('.team').forEach(element => {
       element.classList.add('visible');
     });
   }

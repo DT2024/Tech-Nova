@@ -47,13 +47,13 @@ h2 {
     padding: 0px 20px 0px 20px;
 }
 
-.card {
-    transform: translateX(100%);
+.team {
+    transform: translateX(5%);
     
     transition: transform 5s ease-in-out;
 }
 
-.card.visible {
+.team.visible {
     transform: translateX(0);
 }
 
