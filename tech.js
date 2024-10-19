@@ -15,6 +15,7 @@ function slideInOnLoad() {
 
   //form submitting
   function submitGoogleForm() {
+    // e.preventDefault();
     // Get form values
     const name = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim();
@@ -43,9 +44,14 @@ function slideInOnLoad() {
     // If validation passes, submit the form
     document.querySelector('.contact-form').submit();
     alert('Thank you! Your message has been sent.');
+
+    document.querySelector('.contact-form').reset();
+
 }
 
-
+// document.querySelector('.contact-form').addEventListener('submit', function(e) {
+//     submitGoogleForm(e);
+// });
 // const name = document.getElementById('name').value;
     // const email = document.getElementById('email').value;
     // const message = document.getElementById('message').value;
