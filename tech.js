@@ -45,8 +45,9 @@ function slideInOnLoad() {
     document.querySelector('.contact-form').submit();
     alert('Thank you! Your message has been sent.');
 
-    document.querySelector('.contact-form').reset();
 
+    document.querySelector('.contact-form').reset();
+    window.location.href = 'https://www.technova.software';
 }
 
 // document.querySelector('.contact-form').addEventListener('submit', function(e) {
