@@ -1,73 +1,47 @@
-window.addEventListener('load', function() 
-{
-    const navigation = document.querySelector('.distinct');
-    navigation.classList.add('pop-out');
+window.addEventListener('load', function() {
+  // Apply pop-out animation to distinct, team, and projects sections
+  const elementsToPop = document.querySelectorAll('.distinct, .team, .projects');
+  elementsToPop.forEach(element => {
+      element.classList.add('pop-out');
+  });
 
-    slideInOnLoad();
+  // Apply slide-in animation to cards, project cards, and profiles
+  slideInOnLoad();
 });
 
-
 function slideInOnLoad() {
-    document.querySelectorAll('.team').forEach(element => {
+  const elementsToSlide = document.querySelectorAll('.card, .project-card, .profile');
+  elementsToSlide.forEach(element => {
       element.classList.add('visible');
-    });
-  }
-
-  //form submitting
-  function submitGoogleForm() {
-    // e.preventDefault();
-    // Get form values
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const message = document.getElementById('message').value.trim();
-
-    // Simple validation
-    if (name === '') {
-        alert('Please enter your name.');
-        return false;
-    }
-
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (email === '') {
-        alert('Please enter your email.');
-        return false;
-    } else if (!emailPattern.test(email)) {
-        alert('Please enter a valid email address.');
-        return false;
-    }
-
-    if (message === '') {
-        alert('Please enter your message.');
-        return false;
-    }
-
-    // If validation passes, submit the form
-    document.querySelector('.contact-form').submit();
-    alert('Thank you! Your message has been sent.');
-
-
-    document.querySelector('.contact-form').reset();
-    window.location.href = 'https://www.technova.software';
+  });
 }
 
-// document.querySelector('.contact-form').addEventListener('submit', function(e) {
-//     submitGoogleForm(e);
-// });
-// const name = document.getElementById('name').value;
-    // const email = document.getElementById('email').value;
-    // const message = document.getElementById('message').value;
+function submitGoogleForm() {
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const message = document.getElementById('message').value;
 
-    // // Replace these with your actual entry IDs from the pre-filled link
-    // const googleFormURL = "https://forms.gle/ANfwrBHuJAaYEsvWA";
-    // const entryName = "entry.name"; // Change to your actual entry ID for Name
-    // const entryEmail = "entry.email"; // Change to your actual entry ID for Email
-    // const entryMessage = "entry.message"; // Change to your actual entry ID for Message
+  if (name && email && message) {
+      // Use the actual Google Form response URL and entry IDs
+      const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdTMejwO1UWICcGjcnTYEJyc_KWjAI3GElvUltpCPHvCq_Pxg/formResponse';
+      const formData = new FormData();
+      // Replace these entry IDs with the actual ones from your Google Form
+      formData.append('entry.123456789', name); // Replace with actual 'Name' entry ID
+      formData.append('entry.987654321', email); // Replace with actual 'Email' entry ID
+      formData.append('entry.456789123', message); // Replace with actual 'Message' entry ID
 
-    // Construct the URL with user inputs
-    // const redirectURL = `${googleFormURL}?${entryName}=${encodeURIComponent(name)}
-    //                     &${entryEmail}=${encodeURIComponent(email)}
-    //                     &${entryMessage}=${encodeURIComponent(message)}`;
-  // const redirectURL = "https://forms.gle/ANfwrBHuJAaYEsvWA";
-  //   // Redirect to the Google Form
-  //   window.location.href = redirectURL;
-
+      fetch(googleFormUrl, {
+          method: 'POST',
+          body: formData,
+          mode: 'no-cors'
+      }).then(() => {
+          alert('Thank you for your message! We will get back to you soon.');
+          document.getElementById('contact-form').reset();
+      }).catch(error => {
+          console.error('Error submitting form:', error);
+          alert('There was an error submitting your message. Please try again later.');
+      });
+  } else {
+      alert('Please fill out all fields.');
+  }
+}
