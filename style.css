@@ -56,7 +56,7 @@ h2 {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust to prevent overlap */
     grid-template-rows: auto; /* Let rows adjust automatically */
     justify-content: center;
-    gap: 32px; /* Reduce gap to prevent overlap */
+    gap: 34px; /* Reduce gap to prevent overlap */
     padding: 0 20px;
     margin: 0 auto;
 }
