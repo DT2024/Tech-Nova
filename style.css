@@ -12,6 +12,16 @@ body, html {
     padding: 20px;
     background-color: rgba(0, 0, 0, 0.7);
     min-height: 100vh;
+    width: 100%; /* Ensure the container doesn't exceed the viewport width */
+    overflow-x: hidden; /* Prevent horizontal overflow */
+    box-sizing: border-box;
+}
+
+.section {
+    width: 100%;
+    max-width: 1200px; /* Optional: Set a max-width for larger screens */
+    margin: 0 auto; /* Center the section */
+    overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
 .header {
@@ -50,26 +60,37 @@ h2 {
     transform: scale(1);
 }
 
-.team, .projects {
+.team {
+    width: 100%; /* Use full width of the container */
+    display: flex; /* Switch to flexbox for single-line layout */
+    flex-wrap: nowrap; /* Prevent wrapping, keep all cards in one line */
+    justify-content: center; /* Center the cards horizontally */
+    gap: 10px; /* Maintain spacing between cards */
+    /* padding: 0 10px; */
+    margin: 0 auto;
+    overflow-x: 0; /* Allow horizontal scrolling if cards overflow */
+}
+
+/* Ensure the projects section remains unchanged */
+.projects {
     width: 90%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust to prevent overlap */
-    grid-template-rows: auto; /* Let rows adjust automatically */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-rows: auto;
     justify-content: center;
-    gap: 34px; /* Reduce gap to prevent overlap */
+    gap: 34px;
     padding: 0 20px;
     margin: 0 auto;
 }
 
 .card, .project-card {
-    transform: translateX(100%);
+    transform: translateX(30%); /* Reduce the starting position to 50% */
     transition: transform 5s ease-in-out;
 }
 
 .card.visible, .project-card.visible {
     transform: translateX(0);
 }
-
 .card, .project-card {
     background-color: rgba(51, 51, 51, 0.8);
     color: white;
@@ -78,6 +99,9 @@ h2 {
     border-radius: 10px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.project-card1 {
+
 }
 
 .card img {
@@ -162,15 +186,16 @@ h2 {
 
 /* Individual Page Styles */
 .profile {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+    display: block; /* Change from flex to block to stack elements vertically */
     background-color: rgba(51, 51, 51, 0.8);
     border-radius: 10px;
     padding: 20px;
     margin-bottom: 40px;
     transform: translateX(100%);
     transition: transform 5s ease-in-out;
+    text-align: center; /* Center the content for better presentation */
+    max-width: 100%; /* Ensure the profile section doesn't overflow the container */
+    box-sizing: border-box; /* Include padding in the width calculation */
 }
 
 .profile.visible {
@@ -182,6 +207,8 @@ h2 {
     height: 200px;
     object-fit: cover;
     border-radius: 50%;
+    margin: 0 auto 20px auto; /* Center the image and add spacing below */
+    display: block; /* Ensure the image is a block element to center properly */
 }
 
 .profile-info h3 {
@@ -215,13 +242,16 @@ h2 {
 
 /* Responsive */
 @media screen and (max-width: 768px) {
-    .team, .projects {
+    .team .card {
+        width: 200px; /* Reduce card width on smaller screens */
+    }
+    .projects {
         grid-template-columns: repeat(1, minmax(50px, 2fr));
         grid-template-rows: auto;
         width: 80%;
         margin: 0 auto;
     }
-    .card, .project-card {
+    .project-card {
         width: 100%;
         max-width: 300px;
     }

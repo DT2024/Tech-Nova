@@ -5,7 +5,13 @@ window.addEventListener('load', function() {
         element.classList.add('pop-out');
     });
 
-    // Start the continuous slide-in animation
+    // Apply one-time slide-in animation to profile sections (for individual pages)
+    const profiles = document.querySelectorAll('.profile');
+    profiles.forEach(profile => {
+        profile.classList.add('visible');
+    });
+
+    // Start the continuous slide-in animation for project and team cards (for index.html)
     slideInContinuously();
 });
 
@@ -17,29 +23,29 @@ function slideInContinuously() {
     // Combine both sets of cards into one array
     const allCards = [...projectCards, ...teamCards];
 
-    // Function to animate cards sequentially
-    function animateCards() {
-        // Reset all cards to their initial position (off-screen)
-        allCards.forEach(card => {
-            card.classList.remove('visible'); // Remove the visible class to reset position
-        });
+    // Only proceed if there are cards to animate (i.e., on index.html)
+    if (allCards.length > 0) {
+        function animateCards() {
+            // Reset all cards to their initial position (off-screen)
+            allCards.forEach(card => {
+                card.classList.remove('visible');
+            });
 
-        // Animate each card with a delay
-        allCards.forEach((card, index) => {
-            setTimeout(() => {
-                card.classList.add('visible'); // Slide in the card
-            }, index * 500); // 500ms delay between each card
-        });
+            // Animate each card with a delay
+            allCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('visible');
+                }, index * 500);
+            });
 
-        // Calculate the total time for one cycle (number of cards * delay per card + animation duration)
-        const totalCycleTime = allCards.length * 500 + 5000; // 5000ms is the animation duration from CSS
+            // Calculate the total time for one cycle (number of cards * delay per card + animation duration)
+            const totalCycleTime = allCards.length * 500 + 20000;
+            setTimeout(animateCards, totalCycleTime);
+        }
 
-        // Schedule the next cycle
-        setTimeout(animateCards, totalCycleTime);
+        // Start the first cycle
+        animateCards();
     }
-
-    // Start the first cycle
-    animateCards();
 }
 
 function submitGoogleForm() {
